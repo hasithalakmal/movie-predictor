@@ -1,0 +1,165 @@
+<html>
+<script src="views/pages/dashboard/database/blank.js"></script>
+<script src="scripts\directives\sidenav\calendar\calendar.js"></script>
+
+<!--
+<div >
+<div ng-app="dashyAngular" ng-controller="demon">
+	<button type="button" class="btn btn-primary btn-bordered" ng-click="newDemo()">Next</button>
+</div>
+
+	<script>
+		var app = angular.module('dashyAngular').controller('demon', function($scope)
+		{
+			$scope.newDemo = function(){
+				console.log("table  ta name");
+
+
+			}
+
+		});
+	</script>
+</div>
+</html>
+-->
+
+
+<!--
+<!DOCTYPE html>
+<html>
+<body>
+<div ng-app="myapp" ng-controller="myCtrl">
+	{{ firstName + " " + lastName }}
+</div>
+
+<script>
+	var app = angular.module("myapp", []);
+	app.controller("myCtrl", function($scope) {
+		$scope.firstName = "John";
+		$scope.lastName = "Doe";
+	});
+</script>
+</body>
+</html>
+
+-->
+<div class="panel-heading" >
+    <h3 class="panel-title" style="align-content: center;"> Insert to Table
+
+    </h3>
+    <div ng-controller="selectTableCtrl" class="btn-group" dropdown is-open="status.isopen">
+
+        <select   ng-model="tables" class="btn btn-warning btn-rounded dropdown-toggle right-split" >
+            <!--<option ng-repeat="option in tables" value="{{option.id}}" >{{option.id}}</option>-->
+            <option ng-repeat="option in fields" value="{{option.name}}" >{{option.name}}</option>
+        </select>
+
+
+    </div>
+
+
+</div>
+
+
+
+<div ng-app="dashyAngular">
+
+    <div ng-controller="EditableTableCtrl">
+        <form editable-form name="tableform" onaftersave="saveTable()" oncancel="cancel()">
+
+            <!-- table -->
+
+            <div class="panel panel-warning">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Table
+
+                    </h3>
+                </div>
+                <div class="panel-body">
+
+
+
+                    <table class="table table-bordered table-hover table-condensed">
+                        <tr style="font-weight: bold">
+
+                            <td ng-repeat='f in fields' style="width:40%">{{f.name}}</td>
+
+                        </tr>
+                        <!--<tr style="font-weight: bold">-->
+                            <!--<td ng-repeat='f in rowCount' style="width:40%">{{$index}}</td>-->
+
+                        <!--</tr>-->
+                        <tr ng-repeat="user in rows | filter:filterUser">
+                            <td ng-show='showField(1)'>
+                                <!-- editable username (text with validation) -->
+							  <span  editable-text="user.field0" e-form="tableform" >
+								{{ user.field0 || 'empty' }}
+							  </span>
+												</td>
+												<td ng-show='showField(2)' >
+													<!-- editable username (text with validation) -->
+							  <span editable-text="user.field1" e-form="tableform" >
+								{{ user.field1 || 'empty' }}
+							  </span>
+												</td>
+												<td ng-show='showField(3)'>
+													<!-- editable username (text with validation) -->
+							  <span  editable-text="user.field2" e-form="tableform" >
+								{{ user.field2 || 'empty' }}
+							  </span>
+												</td>
+												<td ng-show='showField(4)'>
+													<!-- editable username (text with validation) -->
+							  <span  editable-text="user.field3" e-form="tableform" >
+								{{ user.field3 || 'empty' }}
+							  </span>
+												</td>
+												<td ng-show='showField(5)' >
+													<!-- editable username (text with validation) -->
+							  <span editable-text="user.field4" e-form="tableform" >
+								{{ user.field4 || 'empty' }}
+							  </span>
+                            </td>
+
+                            <td><button type="button" ng-show="tableform.$visible" ng-click="deleteUser(user.id)" class="btn btn-danger pull-right">Del</button></td>
+                        </tr>
+                    </table>
+
+                    <!-- buttons -->
+                    <div class="btn-edit">
+                        <button type="button" class="btn btn-default" ng-show="!tableform.$visible" ng-click="tableform.$show()">
+                            edit
+                        </button>
+                    </div>
+                    <div class="btn-form" ng-show="tableform.$visible">
+                        <button type="button" ng-disabled="tableform.$waiting" ng-click="addUser()" class="btn btn-default pull-right">add row</button>
+                        <button type="submit" ng-disabled="tableform.$waiting" class="btn btn-primary">save</button>
+                        <button type="button" ng-disabled="tableform.$waiting" ng-click="tableform.$cancel()" class="btn btn-default">cancel</button>
+                    </div>
+
+        </form>
+    </div>
+
+
+</div>
+
+<div ng-controller="queryPreviw" class="pull-right">
+    <button type="button" class="btn btn-info btn-rounded" ng-click="open('lg')">Preview Query</button>
+</div>
+
+<script type="text/ng-template" id="queryModalContent.html">
+    <div class="modal-header">
+        <div ng-repeat='r in rows' class="high-padding text-center" >
+            INSERT INTO {{tableName}} ({{(fields[0].name )|| ''}} {{fields[1] ? ',': ''}} {{fields[1].name || ''}} {{fields[2] ? ',': ''}} {{fields[2].name|| ''}} {{fields[3] ? ',': ''}} {{fields[3].name}} {{fields[4] ? ',': ''}} {{fields[4].name || ''}})
+            <br>
+            VALUES (
+            {{rows[$index].field0 ? "'": ''}} {{rows[$index].field0 || ''}} {{rows[$index].field0 ? "'": ''}} {{rows[$index].field1 ? ',': ''}}
+            {{rows[$index].field1 ? "'": ''}} {{rows[$index].field1 || ''}} {{rows[$index].field1 ? "'": ''}} {{rows[$index].field2 ? ',': ''}}
+            {{rows[$index].field2 ? "'": ''}} {{rows[$index].field2 || ''}} {{rows[$index].field2 ? "'": ''}} {{rows[$index].field3 ? ',': ''}}
+            {{rows[$index].field3 ? "'": ''}} {{rows[$index].field3 || ''}} {{rows[$index].field3 ? "'": ''}} {{rows[$index].field4 ? ',': ''}}
+            {{rows[$index].field4 ? "'": ''}} {{rows[$index].field4 || ''}} {{rows[$index].field4 ? "'": ''}}
+            );
+            <br>
+        </div>
+    </div>
+</script>

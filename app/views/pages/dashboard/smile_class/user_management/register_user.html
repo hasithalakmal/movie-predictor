@@ -1,0 +1,59 @@
+<pageheader pagename="Register User"></pageheader>
+
+<div class="conter-wrapper" data-ng-init="init()">                
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-info" >
+                <div class="panel-heading">
+                    <h3 class="panel-title">Register User</h3>
+                </div>
+                <div class="panel-body">
+                    <form name="simpleform" ng-submit= "submit(simpleform);" ng-validate="validationOptions">
+                        <div class="form-group">
+                            <label>User Name</label>
+                            <input 
+                                type="text" 
+                                class="form-control" 
+                                placeholder="User Name"
+                                ng-model="userName"
+                                name="userName"
+                                />
+                        </div>
+						<div class="form-group">
+                            <label >User Type</label><br>
+                            <select class="form-control"  ng-model="userType">
+								<option value="admin">Administrator User</option>
+								<option value="user">Operational User</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input 
+                                type="password" 
+                                class="form-control" 							
+                                placeholder="Password"
+                                required =""
+                                ng-model="password"
+                                name = "password"
+								 id="password"
+                                />
+                        </div>
+                        <div class="form-group">
+                            <label>Re-Type Password</label>
+                            <input 
+                                type="password" 
+                                class="form-control" 
+                                placeholder="Re-Type Password"
+                                ng-model="rePassword"
+                                name = "rePassword"
+                                />
+                        </div>
+                       
+                        <button  type="submit" class="btn btn-default" ng-disabled="formsinglesublitControleFlag">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

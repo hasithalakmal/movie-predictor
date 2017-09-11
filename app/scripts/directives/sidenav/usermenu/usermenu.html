@@ -1,0 +1,72 @@
+<div>
+    
+    <div class="tab-pane active" id="menu">
+        <div class="photo-container text-center">
+                <img src="images/logo.jpg" alt="" class="img-circle dash-profile" />
+            <div class="t-p">
+                <a href="">සහස් අධ්‍යාපන ආයතනය</a>
+            </div>
+
+        </div>
+        <div class="section-heading">Menus</div>
+        <ul class="nav sidebar-nav">
+            <li ng-class="{active: $state.includes('home')}"><a ui-sref="home" ng-click="showSubNav(0)"><i class="fa fa-home"></i> <span class="menu-text"</span>Home</a>
+            </li>
+			
+			<li  ng-class="{active: $state.includes('attendance')}"><a ui-sref="attendance" ng-click="showSubNav(0)"><i class="fa fa-bookmark-o"></i> <span class="menu-text">Attendance</span></a></li>
+			
+			<li  ng-class="{active: $state.includes('fees')}"><a ui-sref="fees" ng-click="showSubNav(0)"><i class="fa fa-bookmark-o"></i> <span class="menu-text">Fees</span></a></li>
+			
+			<li class="sidenav-dropdown" ng-class="{'show-subnav': showingSubNav=='student_management'}" ng-mouseover="hoverCancel()">
+                <a class="subnav-toggle" href="javascript:;" ng-click="showSubNav('student_management')"><i class="fa fa-toggle-off"></i> <span class="menu-text">Student Management <i class="fa fa-angle-down  pull-right"></i></span></a>
+                <ul class="nav sidenav-sub-menu" collapse="showingSubNav!='student_management'">
+                    <li ng-class="{active: $state.includes('register_student')}"><a ui-sref="register_student" ><i class="fa fa-circle-o"></i> Register Student</a></li>
+                 <!--    <li ng-class="{active: $state.includes('update_student')}"><a ui-sref="update_student" ><i class="fa fa-arrows-v"></i> Update Student</a></li> 
+                    <li ng-class="{active: $state.includes('delete_student')}"><a ui-sref="delete_student" ><i class="fa fa-flag-o"></i> Delete Student</a></li>-->
+                    <li ng-class="{active: $state.includes('view_student')}"><a ui-sref="view_student" ><i class="fa fa-exchange"></i> View Student </a></li>
+                    <li ng-class="{active: $state.includes('view_all_students')}"><a ui-sref="view_all_students" ><i class="fa fa-angle-double-right"></i> View All Students</a></li>
+					<li ng-class="{active: $state.includes('student_assign_to_class')}"><a ui-sref="student_assign_to_class" ><i class="fa fa-angle-double-right"></i> Student Assign to Class</a></li>
+					<li ng-class="{active: $state.includes('search_not_paid_students')}"><a ui-sref="search_not_paid_students" ><i class="fa fa-angle-double-right"></i>Not Paid Students</a></li>
+                </ul>
+            </li>
+			
+			<li class="sidenav-dropdown" ng-class="{'show-subnav': showingSubNav=='class_management'}" ng-mouseover="hoverCancel()">
+                <a class="subnav-toggle" href="javascript:;" ng-click="showSubNav('class_management')"><i class="fa fa-toggle-off"></i> <span class="menu-text">Class Management <i class="fa fa-angle-down  pull-right"></i></span></a>
+                <ul class="nav sidenav-sub-menu" collapse="showingSubNav!='class_management'">
+                  <!--   <li ng-class="{active: $state.includes('register_class_type')}"><a ui-sref="register_class_type" ><i class="fa fa-circle-o"></i> Register Class Type </a></li>
+                    <li ng-class="{active: $state.includes('delete_class_type')}"><a ui-sref="delete_class_type" ><i class="fa fa-arrows-v"></i> Delete Class Type</a></li> -->
+                    <li ng-class="{active: $state.includes('view_class_type')}"><a ui-sref="view_class_type" ><i class="fa fa-flag-o"></i> View Class Type</a></li>
+                   <!--  <li ng-class="{active: $state.includes('register_subject')}"><a ui-sref="register_subject" ><i class="fa fa-exchange"></i> Register Subject </a></li>
+                    <li ng-class="{active: $state.includes('delete_subject')}"><a ui-sref="delete_subject" ><i class="fa fa-angle-double-right"></i> Delete Subject </a></li> -->
+                    <li ng-class="{active: $state.includes('view_subject')}"><a ui-sref="view_subject" ><i class="fa fa-circle-o"></i> View Subject</a></li>
+                  <!--   <li ng-class="{active: $state.includes('register_class')}"><a ui-sref="register_class" ><i class="fa fa-arrows-v"></i> Register Class</a></li>
+                    <li ng-class="{active: $state.includes('update_class')}"><a ui-sref="update_class" ><i class="fa fa-flag-o"></i> Update Class</a></li> 
+                    <li ng-class="{active: $state.includes('delete_class')}"><a ui-sref="delete_class" ><i class="fa fa-exchange"></i> Delete Class </a></li>-->
+                    <li ng-class="{active: $state.includes('view_class')}"><a ui-sref="view_class" ><i class="fa fa-angle-double-right"></i> View Class</a></li>
+				</ul>
+            </li>
+			
+			<li class="sidenav-dropdown" ng-class="{'show-subnav': showingSubNav=='teacher_management'}" ng-mouseover="hoverCancel()">
+                <a class="subnav-toggle" href="javascript:;" ng-click="showSubNav('teacher_management')"><i class="fa fa-toggle-off"></i> <span class="menu-text">Teacher Management <i class="fa fa-angle-down  pull-right"></i></span></a>
+                <ul class="nav sidenav-sub-menu" collapse="showingSubNav!='teacher_management'">
+                    <!-- <li ng-class="{active: $state.includes('register_teacher')}"><a ui-sref="register_teacher" ><i class="fa fa-circle-o"></i> Register Teacher</a></li>
+                    <li ng-class="{active: $state.includes('update_teacher')}"><a ui-sref="update_teacher" ><i class="fa fa-arrows-v"></i> Update Teacher</a></li> 
+                    <li ng-class="{active: $state.includes('delete_teacher')}"><a ui-sref="delete_teacher" ><i class="fa fa-flag-o"></i> Delete Teacher</a></li>
+                    <li ng-class="{active: $state.includes('view_teacher')}"><a ui-sref="view_teacher" ><i class="fa fa-exchange"></i> View Teacher </a></li> -->
+                    <li ng-class="{active: $state.includes('view_all_teacher')}"><a ui-sref="view_all_teacher" ><i class="fa fa-exchange"></i> View All Teacher </a></li>
+				</ul>
+            </li>
+			
+			<li class="sidenav-dropdown" ng-class="{'show-subnav': showingSubNav=='transaction_management'}" ng-mouseover="hoverCancel()">
+                <a class="subnav-toggle" href="javascript:;" ng-click="showSubNav('transaction_management')"><i class="fa fa-toggle-off"></i> <span class="menu-text">Transaction Management <i class="fa fa-angle-down  pull-right"></i></span></a>
+                <ul class="nav sidenav-sub-menu" collapse="showingSubNav!='transaction_management'">
+                   <!--  <li ng-class="{active: $state.includes('teachers_payment')}"><a ui-sref="teachers_payment" ><i class="fa fa-circle-o"></i> Teacher's Payment</a></li> -->
+					<li ng-class="{active: $state.includes('other_income')}"><a ui-sref="other_income" ><i class="fa fa-exchange"></i> Photocopy Charges </a></li>
+                     <!--<li ng-class="{active: $state.includes('daily_report')}"><a ui-sref="daily_report" ><i class="fa fa-arrows-v"></i> Daily Report</a></li>
+                    <li ng-class="{active: $state.includes('periodic_report')}"><a ui-sref="periodic_report" ><i class="fa fa-flag-o"></i> Periodic Report</a></li>
+                    <li ng-class="{active: $state.includes('other_payment')}"><a ui-sref="other_payment" ><i class="fa fa-flag-o"></i> Other Payment</a></li>
+                    <li ng-class="{active: $state.includes('view_accounts')}"><a ui-sref="view_accounts" ><i class="fa fa-exchange"></i> View Accounts </a></li> -->
+			   </ul>
+            </li>
+    </div>
+</div>

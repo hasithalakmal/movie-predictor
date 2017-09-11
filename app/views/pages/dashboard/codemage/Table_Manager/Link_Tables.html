@@ -1,0 +1,80 @@
+<pageheader pagename="Link Table"></pageheader>
+
+<div class="conter-wrapper" data-ng-init="init()">                
+   <div class="row">
+        <div class="col-sm-12">
+			<div class="panel panel-info" >
+					<div class="panel-heading">
+						<h3 class="panel-title">Link Tables</h3>
+					</div>
+					<div class="panel-body">
+						<form ng-submit="submit()">
+							<div class="form-group">
+									<label for="exampleInputEmail1">FK Name</label>
+									<input type="text" ng-model="FK_name">
+							</div>
+							<div class="form-group">
+									<label for="exampleInputEmail1">Database Name</label>
+									<select class="form-group" ng-options="option for option in database_names_select" ng-model="selectedDB" ng-change="getTable()">
+									  <option value="">---Please select---</option> <!-- not selected / blank option -->
+									</select>
+							</div>
+							<div class="form-group">
+								<label for="exampleInputEmail1">Database Table Name</label>
+								<select class="form-group" ng-options="option for option in table_names_select_base" ng-model="selectedTBL_BASE" ng-change="getBaseFeild()">
+								  <option value="">---Please select---</option> <!-- not selected / blank option -->
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="exampleInputEmail1">Database Table Field</label>
+								<select class="form-group" ng-options="option for option in table_names_select_base_f" ng-model="selectedTBL_BASE_F">
+								  <option value="">---Please select---</option> <!-- not selected / blank option -->
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="exampleInputEmail1">Reference Table Name</label>
+								<select class="form-group" ng-options="option for option in table_names_select_ref" ng-model="selectedTBL_REF" ng-change="getRefFeild()">
+								  <option value="">---Please select---</option> <!-- not selected / blank option -->
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="exampleInputEmail1">Reference Table Field</label>
+								<select class="form-group" ng-options="option for option in table_names_select_ref_f" ng-model="selectedTBL_REF_F">
+								  <option value="">---Please select---</option> <!-- not selected / blank option -->
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="exampleInputEmail1">On Delete Action</label>
+								<select class="form-group" ng-options="option for option in table_names_select_ondel" ng-model="selected_ON_DEL">
+								  <option value="">---Please select---</option> <!-- not selected / blank option -->
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="exampleInputEmail1">On Update Action</label>
+								<select class="form-group" ng-options="option for option in table_names_select_onupd" ng-model="selected_ON_UPD">
+								  <option value="">---Please select---</option> <!-- not selected / blank option -->
+								</select>
+							</div>
+							<button  type="submit" class="btn btn-default">Submit</button>
+						</form>
+						
+					</div>
+			</div>
+            
+        </div>
+    </div>
+	<div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-info" >
+                <div class="panel-heading">
+                    <h3 class="panel-title">Link Table Query</h3>
+                </div>
+                <div class="panel panel-primary">
+                    <div class="panel-body">
+						<pre>{{query}}</pre>
+					</div>
+				</div>
+			</div>
+		</div>
+    </div>
+</div>

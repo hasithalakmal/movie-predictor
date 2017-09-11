@@ -1,0 +1,258 @@
+<pageheader pagename="viewTrainingResult"></pageheader>
+
+<div class="conter-wrapper" data-ng-init="init()">
+    <div class="row">
+        <!--actor-->
+        <div class="col-sm-12">
+            <div class="panel panel-info" id="printTable">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Actor Likelihood Table</h3>
+                </div>
+                <div class="panel-body">
+                    <table id="StudentSearchResultByName" class="table table-striped table-bordered" cellspacing="0"
+                           width="100%" class="table table-bordered table-striped">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Property</th>
+                            <th>Positives</th>
+                            <th>Negatives</th>
+                            <th>Criteria Probability</th>
+                        </tr>
+                        </thead>
+                        <tbody id="stuSerchTableBody">
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <th>ID</th>
+                            <th>Property</th>
+                            <th>Positives</th>
+                            <th>Negatives</th>
+                            <th>Criteria Probability</th>
+                        </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!--director-->
+        <div class="col-sm-12">
+            <div class="panel panel-info" id="printTable1">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Director Likelihood Table</h3>
+                </div>
+                <div class="panel-body">
+                    <table id="StudentSearchResultByName1" class="table table-striped table-bordered"
+                           cellspacing="0"
+                           width="100%" class="table table-bordered table-striped">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Property</th>
+                            <th>Positives</th>
+                            <th>Negatives</th>
+                            <th>Criteria Probability</th>
+                        </tr>
+                        </thead>
+                        <tbody id="stuSerchTableBody1">
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <th>ID</th>
+                            <th>Property</th>
+                            <th>Positives</th>
+                            <th>Negatives</th>
+                            <th>Criteria Probability</th>
+                        </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+        <!--GENRES-->
+        <div class="col-sm-12">
+            <div class="panel panel-info" id="printTable2">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Genres Likelihood Table</h3>
+                </div>
+                <div class="panel-body">
+                    <table id="StudentSearchResultByName2" class="table table-striped table-bordered"
+                           cellspacing="0"
+                           width="100%" class="table table-bordered table-striped">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Property</th>
+                            <th>Positives</th>
+                            <th>Negatives</th>
+                            <th>Criteria Probability</th>
+                        </tr>
+                        </thead>
+                        <tbody id="stuSerchTableBody2">
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <th>ID</th>
+                            <th>Property</th>
+                            <th>Positives</th>
+                            <th>Negatives</th>
+                            <th>Criteria Probability</th>
+                        </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+        <!--LANGUAGE-->
+        <div class="col-sm-12">
+            <div class="panel panel-info" id="printTable3">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Language Likelihood Table</h3>
+                </div>
+                <div class="panel-body">
+                    <table id="StudentSearchResultByName3" class="table table-striped table-bordered"
+                           cellspacing="0"
+                           width="100%" class="table table-bordered table-striped">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Property</th>
+                            <th>Positives</th>
+                            <th>Negatives</th>
+                            <th>Criteria Probability</th>
+                        </tr>
+                        </thead>
+                        <tbody id="stuSerchTableBody3">
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <th>ID</th>
+                            <th>Property</th>
+                            <th>Positives</th>
+                            <th>Negatives</th>
+                            <th>Criteria Probability</th>
+                        </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!--COUNTRY-->
+        <div class="col-sm-12">
+            <div class="panel panel-info" id="printTable4">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Country Likelihood Table</h3>
+                </div>
+                <div class="panel-body">
+                    <table id="StudentSearchResultByName4" class="table table-striped table-bordered"
+                           cellspacing="0"
+                           width="100%" class="table table-bordered table-striped">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Property</th>
+                            <th>Positives</th>
+                            <th>Negatives</th>
+                            <th>Criteria Probability</th>
+                        </tr>
+                        </thead>
+                        <tbody id="stuSerchTableBody4">
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <th>ID</th>
+                            <th>Property</th>
+                            <th>Positives</th>
+                            <th>Negatives</th>
+                            <th>Criteria Probability</th>
+                        </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!--BUDGET_ID-->
+        <div class="col-sm-12">
+            <div class="panel panel-info" id="printTable5">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Budget Likelihood Table</h3>
+                </div>
+                <div class="panel-body">
+                    <table id="StudentSearchResultByName5" class="table table-striped table-bordered"
+                           cellspacing="0"
+                           width="100%" class="table table-bordered table-striped">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Property</th>
+                            <th>Positives</th>
+                            <th>Negatives</th>
+                            <th>Criteria Probability</th>
+                        </tr>
+                        </thead>
+                        <tbody id="stuSerchTableBody5">
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <th>ID</th>
+                            <th>Property</th>
+                            <th>Positives</th>
+                            <th>Negatives</th>
+                            <th>Criteria Probability</th>
+                        </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+        <!--DURATION-->
+        <div class="col-sm-12">
+            <div class="panel panel-info" id="printTable6">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Duration Likelihood Table</h3>
+                </div>
+                <div class="panel-body">
+                    <table id="StudentSearchResultByName6" class="table table-striped table-bordered"
+                           cellspacing="0"
+                           width="100%" class="table table-bordered table-striped">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Property</th>
+                            <th>Positives</th>
+                            <th>Negatives</th>
+                            <th>Criteria Probability</th>
+                        </tr>
+                        </thead>
+                        <tbody id="stuSerchTableBody6">
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <th>ID</th>
+                            <th>Property</th>
+                            <th>Positives</th>
+                            <th>Negatives</th>
+                            <th>Criteria Probability</th>
+                        </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>

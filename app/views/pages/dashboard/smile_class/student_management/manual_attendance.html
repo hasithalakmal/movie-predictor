@@ -1,0 +1,101 @@
+<pageheader pagename="Manual Attendance"></pageheader>
+
+<div class="conter-wrapper" data-ng-init="init()">                
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-info" >
+                <div class="panel-heading">
+                    <h3 class="panel-title">Mark Attendance</h3>
+                </div>
+                <div class="panel-body">
+                    <form ng-submit= "submit(attendance_form);" name="attendance_form"  ng-validate="validationOptions">
+                        <div class="form-group">
+                            <label >Class Name</label><br>
+                            <select class="form-control" ng-options="obj.clsId as obj.clsName for obj in study_class_select" ng-model="selected" ng-change="update_fee()">
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Student Registration Number</label>
+                            <input 
+                                type="number" 
+                                min ="1"
+                                class="form-control" 
+                                name ="addmision_number"									
+                                placeholder="Enter Student Registration Number"
+                                required =""
+                                ng-model="addmision_number"
+                                min=0;
+                                />
+                        </div>
+                        <button  type="submit" class="btn btn-default" ng-disabled="formsinglesublitControleFlag">Submit</button>
+                    </form>
+                </div>
+                <div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" ng-show="isStudentSelect">
+        <div class="col-sm-12">
+            <div class="panel panel-info" >
+                <div class="panel-heading">
+                    <h3 class="panel-title">Need To Pay</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="col-sm-4">	
+                        <stats 
+                            bgclass="danger" 
+                            icon="eye" 
+                            value={{creditBal}} 
+                            text="Payable Amount">
+                        </stats>
+                    </div>	
+                    <table id="StudentSearchResultByName" class="table table-striped table-bordered" cellspacing="0" width="100%" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Record ID</th>
+                                <th>Year</th>
+                                <th>Month</th>
+                                <th>Class</th>
+                                <th>Teacher Name</th>
+                                <th>Class Fees</th>
+                            </tr>
+                        </thead>
+                        <tbody id ="stuSerchTableBody">
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Record ID</th>
+                                <th>Year</th>
+                                <th>Month</th>
+                                <th>Class</th>
+                                <th>Teacher Name</th>
+                                <th>Class Fees</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-info" >
+                <div class="panel-heading">
+                    <h3 class="panel-title">Audio Controlling Panel</h3>
+                </div>
+                <div class="panel-body">
+                    <button class="btn btn-default" ng-click='audio.restart()'>Stop</button>
+                    <button class="btn btn-default" ng-click='audio.muting = !audio.muting'>Mute</button>
+                    <div class="form-group">
+                        <label>Volume</label>
+                        <input class='form-control' type=range min=0 max=1 step=0.01 ng-model='audio.volume'>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+

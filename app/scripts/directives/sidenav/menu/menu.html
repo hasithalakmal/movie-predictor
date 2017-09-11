@@ -1,0 +1,29 @@
+<div>
+    
+    <div class="tab-pane active" id="menu">
+        <div class="photo-container text-center">
+                <img src="images/logo.jpg" alt="" class="img-circle dash-profile" />
+            <div class="t-p">
+                <a href="">Movie predictor</a>
+            </div>
+
+        </div>
+        <div class="section-heading">Menus</div>
+        <ul class="nav sidebar-nav">
+            <li ng-class="{active: $state.includes('home')}"><a ui-sref="home" ng-click="showSubNav(0)"><i class="fa fa-home"></i> <span class="menu-text"</span>Home</a>
+            </li>
+			
+			<li  ng-class="{active: $state.includes('TrainingCtrl')}"><a ui-sref="TrainingCtrl" ng-click="showSubNav(0)"><i class="fa fa-bookmark-o"></i> <span class="menu-text">Training Controller</span></a></li>
+			
+			<li  ng-class="{active: $state.includes('viewTrainingData')}"><a ui-sref="viewTrainingData" ng-click="showSubNav(0)"><i class="fa fa-bookmark-o"></i> <span class="menu-text">View TrainingData</span></a></li>
+
+            <li  ng-class="{active: $state.includes('viewTrainingResult')}"><a ui-sref="viewTrainingResult" ng-click="showSubNav(0)"><i class="fa fa-bookmark-o"></i> <span class="menu-text">View Training Result</span></a></li>
+
+            <li  ng-class="{active: $state.includes('TestController')}"><a ui-sref="TestController" ng-click="showSubNav(0)"><i class="fa fa-bookmark-o"></i> <span class="menu-text">Test Controller</span></a></li>
+
+            <li  ng-class="{active: $state.includes('getPrediction')}"><a ui-sref="getPrediction" ng-click="showSubNav(0)"><i class="fa fa-bookmark-o"></i> <span class="menu-text">Get Prediction</span></a></li>
+
+		</ul>
+			
+    </div>
+</div>

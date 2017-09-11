@@ -1,0 +1,59 @@
+<pageheader pagename="Other Income"></pageheader>
+
+<div class="conter-wrapper" data-ng-init="init()">                
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-info" >
+                <div class="panel-heading">
+                    <h3 class="panel-title">Other Income</h3>
+                </div>
+                <div class="panel-body">
+                    <form name="simpleform" ng-submit= "submit(simpleform);" ng-validate="validationOptions">
+                        <div class="form-group">
+                            <label for="salaryAmount">Select Teacher</label>
+                            <select class="form-control" ng-options="obj.teaId as obj.teaName for obj in tea_names_select" ng-model="selected">
+								<option value="0">None</option>
+							</select>
+                        </div>
+						<div class="form-group">
+                            <label for="salaryAmount">Select Income Type</label>
+                            <select class="form-control" ng-model="reason" ng-change="incomeTypeSelecter()">
+								<option value="0">Other</option>
+								<option value="1">Photocopy</option>
+								<option value="2">Telephone Bill</option>
+								<option value="3">Publicity</option>
+                            </select>
+                        </div>	
+                        <div class="form-group">
+                                <label>Description</label>
+                                <input 
+                                        type="text" 
+                                        class="form-control" 
+                                        id="description"
+                                        placeholder="Description"
+                                        required =""
+                                        ng-model="description"
+										name = "description"
+                                /> 
+                        </div>
+                        <div class="form-group">
+                            <label>Amount</label>
+                            <input 
+                                type="number" 
+                                step="0.01" 
+                                class="form-control" 
+                                id="salaryAmount" 
+                                placeholder="Amount"
+                                ng-model="salaryAmount"
+                                name = "salaryAmount"
+                                />
+                        </div>								
+                        <button  type="submit" class="btn btn-default" ng-disabled="formsinglesublitControleFlag">Submit</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+

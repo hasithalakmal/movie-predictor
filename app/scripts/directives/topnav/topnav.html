@@ -1,0 +1,35 @@
+<nav class="navbar navbar-inverse navbar-fixed-top striped-bg" id="top-navbar">
+    <div class="container-fluid">
+        <div class="navbar-header">       
+            <a class="sidenav-toggle" href="javascript:;"ng-click="showMenu();" ><span class="brandbar"><i class="fa fa-bars hidd"></i></a></span>
+            <a class="navbar-brand" ui-sref="home"><i class="fa fa-paper-plane"></i>&nbsp;Movie Prediction System</a> <div class="solution">>&nbsp;</i> admin console</div>
+        </div>
+        <div class="right-admin">
+            <ul>
+				<li class="dropdown hidd" dropdown on-toggle="toggled(open)">
+                    <a href class="dropdown-toggle admin-toggle" dropdown-toggle>
+                        <img class="img-circle admin-img" src="images/logo.jpg" alt="">
+                    </a>
+                    <ul class="dropdown-menu admin" role="menu">
+						 <li><a ui-sref="profile"><i class="fa fa-info"></i> Change Password</a></li>
+                        <li><a ui-sref="login"><i class="fa fa-power-off"></i> Logout</a></li>
+                    </ul>             
+                </li>
+            </ul>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right top-nav">
+                <li class="dropdown" dropdown on-toggle="toggled(open)">
+                    <a href class="dropdown-toggle admin-toggle" dropdown-toggle>
+                        <img class="img-circle admin-img" src="images/logo.jpg" alt="">&nbsp;&nbsp;&nbsp;<span class="add">{{userType}}&nbsp;
+                        <i class="fa fa-angle-down"></i></span>
+                    </a>
+                    <ul class="dropdown-menu admin" role="menu">
+                        <!--  <li><a><i class="fa fa-info"></i> Change Password</a></li> -->
+                        <li><a ui-sref="login" ng-click="logout()"><i class="fa fa-power-off"></i> Logout</a></li>
+                    </ul>             
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

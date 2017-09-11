@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="scripts/controllers/update.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>Update</title>
+</head>
+<body>
+
+
+<div class="panel-heading" >
+    <h3 class="panel-title" style="align-content: center;">Update Table
+
+    </h3>
+    <div ng-controller="selectupdateTableCtrl" class="btn-group" dropdown is-open="status.isopen">
+
+        <select   ng-model="updatetables" class="btn btn-warning btn-rounded dropdown-toggle right-split" >
+            <option ng-repeat="option in updatetables" value="{{option.id}}" >{{option.id}}</option>
+        </select>
+
+
+    </div>
+</div>
+
+
+<div ng-app="dashyAngular">
+
+
+        <div ng-controller="EditableupdateTableCtrl">
+            <form editable-form name="tableform" onaftersave="saveTable()" oncancel="cancel()">
+
+                <!-- table -->
+
+                <div class="panel panel-warning">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Table
+
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+
+
+
+                        <table class="table table-bordered table-hover table-condensed">
+                            <tr style="font-weight: bold">
+                                <td style="width:40%">ID</td>
+                                <td ng-repeat='f in fields' style="width:40%">{{f.name}}</td>
+
+                            </tr>
+                            <!--<tr style="font-weight: bold">-->
+                            <!--<td ng-repeat='f in rowCount' style="width:40%">{{$index}}</td>-->
+
+                            <!--</tr>-->
+                            <tr ng-repeat="user in rows | filter:filterUser">
+                                <td ng-show='showField(1)'>
+                                    <!-- editable username (text with validation) -->
+          <span   e-form="tableform" >
+            {{ $index }}
+          </span>
+                                </td>
+                                <td ng-show='showField(1)'>
+                                    <!-- editable username (text with validation) -->
+          <span  editable-text="user.field0" e-form="tableform" >
+            {{ user.field0 || 'empty' }}
+          </span>
+                                </td>
+                                <td ng-show='showField(2)' >
+                                    <!-- editable username (text with validation) -->
+          <span editable-text="user.field1" e-form="tableform" >
+            {{ user.field1 || 'empty' }}
+          </span>
+                                </td>
+                                <td ng-show='showField(3)'>
+                                    <!-- editable username (text with validation) -->
+          <span  editable-text="user.field2" e-form="tableform" >
+            {{ user.field2 || 'empty' }}
+          </span>
+                                </td>
+                                <td ng-show='showField(4)'>
+                                    <!-- editable username (text with validation) -->
+          <span  editable-text="user.field3" e-form="tableform" >
+            {{ user.field3 || 'empty' }}
+          </span>
+                                </td>
+                                <td ng-show='showField(5)' >
+                                    <!-- editable username (text with validation) -->
+          <span editable-text="user.field4" e-form="tableform" >
+            {{ user.field4 || 'empty' }}
+          </span>
+                                </td>
+
+                                <td><button type="button" ng-show="tableform.$visible" ng-click="deleteUser(user.id)" class="btn btn-danger pull-right">Del</button></td>
+                            </tr>
+                        </table>
+
+                        <!-- buttons -->
+                        <div class="btn-edit">
+                            <button type="button" class="btn btn-default" ng-show="!tableform.$visible" ng-click="tableform.$show()">
+                                edit
+                            </button>
+                        </div>
+                        <div class="btn-form" ng-show="tableform.$visible">
+                            <button type="button" ng-disabled="tableform.$waiting" ng-click="addUser()" class="btn btn-default pull-right">add row</button>
+                            <button type="submit" ng-disabled="tableform.$waiting" class="btn btn-primary">save</button>
+                            <button type="button" ng-disabled="tableform.$waiting" ng-click="tableform.$cancel()" class="btn btn-default">cancel</button>
+                        </div>
+
+            </form>
+        </div>
+</div>
+
+<div ng-controller="queryupdatePreviw" class="pull-right">
+    <button type="button" class="btn btn-info btn-rounded" ng-click="open('lg')">Preview Query</button>
+</div>
+
+<script type="text/ng-template" id="queryUpdateModalContent.html">
+    <div class="modal-header">
+        <div ng-repeat='r in rows' class="high-padding text-center" >
+
+            UPDATE {{tableName}}
+            <br>
+            SET
+            {{(fields[0].name )|| ''}} {{fields[0] ? ' = ': ''}} {{rows[$index].field0 ? "'": ''}} {{rows[$index].field0 || ''}} {{rows[$index].field0 ? "'": ''}}{{fields[1] ? ' , ': ''}}
+            {{(fields[1].name )|| ''}} {{fields[1] ? ' = ': ''}} {{rows[$index].field1 ? "'": ''}} {{rows[$index].field1 || ''}} {{rows[$index].field1 ? "'": ''}}{{fields[2] ? ' , ': ''}}
+            {{(fields[2].name )|| ''}} {{fields[2] ? ' = ': ''}} {{rows[$index].field2 ? "'": ''}} {{rows[$index].field2 || ''}} {{rows[$index].field2 ? "'": ''}}{{fields[3] ? ' , ': ''}}
+            {{(fields[3].name )|| ''}} {{fields[3] ? ' = ': ''}} {{rows[$index].field3 ? "'": ''}} {{rows[$index].field3 || ''}} {{rows[$index].field3 ? "'": ''}}{{fields[4] ? ' , ': ''}}
+            {{(fields[4].name )|| ''}} {{fields[4] ? ' = ': ''}} {{rows[$index].field4 ? "'": ''}} {{rows[$index].field4 || ''}} {{rows[$index].field4 ? "'": ''}}
+            <br>
+            WHERE ID = {{$index}}
+        </div>
+    </div>
+</script>
+
+
+
+</body>
+</html>

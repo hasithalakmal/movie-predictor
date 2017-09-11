@@ -1,0 +1,130 @@
+<pageheader pagename="Get Prediction"></pageheader>
+
+<div class="conter-wrapper">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Get Prediction </h3>
+                </div>
+                <div class="panel-body">
+                    <form name="simpleform" ng-submit="submit(simpleform);" ng-validate="validationOptions">
+                        <div class="form-group">
+                            <label> Movie Name </label>
+                            <input
+                                    type="text"
+                                    class="form-control"
+                                    placeholder="Enter Movie Name "
+                                    ng-model="moveName"
+                                    name="moveName"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label> Director Name </label>
+                            <input
+                                    type="text"
+                                    class="form-control"
+                                    placeholder="Enter Director Name "
+                                    ng-model="diretorName"
+                                    name="diretorName"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label> Actor Name </label>
+                            <input
+                                    type="text"
+                                    class="form-control"
+                                    placeholder="Enter Actor Name"
+                                    ng-model="actorName"
+                                    name="actorName"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label> Genre </label>
+                            <input
+                                    type="text"
+                                    class="form-control"
+                                    placeholder="Enter Genre "
+                                    ng-model="genre"
+                                    name="genre"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label> Budget </label>
+                            <input
+                                    type="text"
+                                    class="form-control"
+                                    placeholder="Enter Budget"
+                                    ng-model="budget"
+                                    name="budget"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label> Language </label>
+                            <input
+                                    type="text"
+                                    class="form-control"
+                                    placeholder="Enter Language"
+                                    ng-model="lanauge"
+                                    name="lanauge"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label> Country </label>
+                            <input
+                                    type="text"
+                                    class="form-control"
+                                    placeholder="Enter Country"
+                                    ng-model="country"
+                                    name="country"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label> Duration </label>
+                            <input
+                                    type="text"
+                                    class="form-control"
+                                    placeholder="Enter Duration"
+                                    ng-model="duration"
+                                    name="duration"
+                            />
+                        </div>
+
+
+                        <button type="submit" class="btn btn-default" ng-disabled="formsinglesublitControleFlag1">
+                            Submit
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="row" ng-show="resultPannal">
+                <div class="col-sm-4">
+                    <stats
+                            bgclass="info"
+                            icon="eye"
+                            value={{positiveProbability}}
+                            text="positiveProbability">
+                    </stats>
+                </div>
+                <div class="col-sm-4">
+                    <stats
+                            bgclass="primary"
+                            icon="eye"
+                            value={{negativeProbability}}
+                            text="negativeProbability">
+                    </stats>
+                </div>
+                <div class="col-sm-4">
+                    <stats
+                            bgclass="warning"
+                            icon="eye"
+                            value={{prediction}}
+                            text="prediction">
+                    </stats>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+

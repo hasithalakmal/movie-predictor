@@ -1,0 +1,123 @@
+<pageheader pagename="Alter Table"></pageheader>
+
+<div class="conter-wrapper">                
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-info" >
+                <div class="panel-heading">
+                    <h3 class="panel-title">Select Database Name & Table Name </h3>
+                </div>
+                <div class="panel panel-primary">
+                    <div class="panel-body">
+                        <form ng-submit="selectTableToAlter()">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1" >Database Name</label>
+                                <select class="form-control" ng-model="dbName" >
+                                    <option value="volvo">Volvo</option>
+                                    <option value="saab">Saab</option>
+                                    <option value="opel">Opel</option>
+                                    <option value="audi">Audi</option>
+                                </select>
+                            </div>
+							<div class="form-group">
+                                <label for="exampleInputEmail1" >Table Name</label>
+                                <select class="form-control" ng-model="tblName">
+                                    <option value="volvo">Volvo</option>
+                                    <option value="saab">Saab</option>
+                                    <option value="opel">Opel</option>
+                                    <option value="audi">Audi</option>
+                                </select>
+                            </div>
+							<button  type="submit" class="btn btn-default">Submit</button>
+                        </form>
+                    </div>
+
+                </div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-info" >
+                <div class="panel-heading">
+                    <h3 class="panel-title">Alter Table </h3>
+                </div>
+                <div class="panel panel-primary">
+						<div class="panel-body">
+							<div class="form-group">
+								<table class="table table-bordered table-hover table-condensed">
+									<tr style="font-weight: bold">
+										<td style="width:20%">Name</td>
+										<td style="width:15%">Data Type</td>
+										<td style="width:5%">PK</td>
+										<td style="width:5%">NN</td>
+										<td style="width:5%">UQ</td>
+										<td style="width:5%">AI</td>
+										<td style="width:25%">Edit</td>
+									</tr>
+									<tr ng-repeat="user in users">
+										<td>
+											<!-- editable username (text with validation) -->
+											<span editable-text="user.name" e-name="name" e-form="rowform" >
+												{{ user.name || 'empty' }}
+											</span>
+										</td>
+										<td>
+											<!-- editable status (select-local) -->
+											<span editable-select="user.datatype" e-name="datatype" e-form="rowform" e-ng-options="s.value as s.text for s in datatype">
+											  {{ showDataTypes(user) }}
+											</span>
+										  </td>
+										<td>
+											<!-- editable group (select-remote) -->
+											<span editable-checkbox="user.pk" e-form="rowform">
+												{{ user.pk}}
+											</span>
+										</td>
+										<td>
+											<!-- editable group (select-remote) -->
+											<span editable-checkbox="user.nn" e-form="rowform">
+												{{ user.nn}}
+											</span>
+										</td>
+										<td>
+											<!-- editable group (select-remote) -->
+											<span editable-checkbox="user.uq" e-form="rowform" >
+												 {{ user.uq }}
+											</span>
+										</td>
+										<td>
+											<span editable-checkbox="user.ai" e-form="rowform" >
+												 {{ user.ai }}
+											</span>
+										</td>
+										
+										<td style="white-space: nowrap">
+											<!-- form -->
+											<form editable-form name="rowform" onbeforesave="saveUser($data, user.id, user.pk, user.nn, user.uq, user.ai)" ng-show="rowform.$visible" class="form-buttons form-inline" shown="inserted == user">
+												<button type="submit" ng-disabled="rowform.$waiting" class="btn btn-primary">
+													save
+												</button>
+												<button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()" class="btn btn-default">
+													cancel
+												</button>
+											</form>
+											<div class="buttons" ng-show="!rowform.$visible">
+												<button class="btn btn-primary" ng-click="rowform.$show()">edit</button>
+												<button class="btn btn-danger" ng-click="removeUser($index)">del</button>
+											</div>  
+										</td>
+									</tr>
+								</table>
+								<button class="btn btn-default" ng-click="addUser()">Add row</button>
+								<button  type="btn btn-info" class="btn btn-default" ng-click="updateTable()">Submit</button>
+							</div>
+						</div>
+				</div>
+			</div>
+		</div>
+    </div>
+</div>
+

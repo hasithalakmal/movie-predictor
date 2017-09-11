@@ -1,0 +1,329 @@
+<div class="tab-pane" id="calendar">
+    <div class="section-heading"></div>
+
+    <div ng-controller="databaseCtrl" >
+        <button type="button" class="btn btn-info btn-rounded" ng-click="open('lg')">Create Database</button>
+    </div>
+
+    <script type="text/ng-template" id="mydbModalContent.html">
+        <div class="modal-header">
+            <h3 class="modal-title">Create Database</h3>
+        </div>
+        <div class="modal-body">
+            <div class="high-padding text-center" >
+                <div ng-hide="divCtrl" >
+                    <!--type here-->
+                    <div>
+
+
+
+
+                        <!-- create db-->
+
+                        <div  ng-controller="dbNameCtrl">
+
+                            <label> Enter Database name : </label>
+                            <input  class="form-control" id="createDBName" placeholder="Enter Database name" ng-model="dbName">
+
+                            <div style="padding: 10px;">
+                                <span ></span>
+                            </div>
+
+                            <div class="panel panel-info">
+                                <div class="panel-heading">
+                                    <label>CREATE DATABASE</label>
+                                    <span ng-bind="dbName"></span>
+                                    <label>;</label>
+
+                                </div>
+                            </div>
+
+							<div >
+								<button type="button" class="btn btn-primary btn-bordered" ng-click="createDb()">Create Database</button>
+							</div>
+
+
+                        </div>
+                    </div>
+                    
+                  
+
+
+                    <div >
+                        <button type="button" class="btn btn-primary btn-bordered" ng-click="divCtrl=true">Next</button>
+                    </div>
+
+
+
+                </div>
+
+                <div ng-show="divCtrl" >
+
+                    <!--table name -->
+
+
+
+                    <div  ng-controller="tableNameCtrl">
+
+                        <label> Enter Table name : </label>
+                        <input  class="form-control" id="createTableName" placeholder="Enter Table name" ng-model="$rootScope.tableName">
+
+                        <div style="padding: 10px;">
+                            <span ></span>
+                        </div>
+
+
+                    </div>
+
+
+
+
+
+
+                    <!-- field set -->
+
+                    <div ng-controller="fieldController">
+
+
+                          <label> Enter Table name : </label>
+                        <input  class="form-control" id="createTableName" placeholder="Enter Table name" ng-model="tableName">
+
+
+                        <div class="row">
+
+                            <label for="colname" class="col-md-2">Name</label>
+
+                            <label  class="col-md-2">Type</label>
+
+                            <label for="colsize" class="col-md-2">Length</label>
+
+                            <label for="colnull" class="col-md-1"> Not Null</label>
+
+                            <label class="col-md-1">Auto Increment</label>
+
+                            <label class="col-md-2">Index</label>
+                        </div>
+
+                        <div ng-repeat="field in fields" class="row">
+
+                            <div class="col-md-2">
+                                <input id="colname"class="form-control" ng-model="field.name">
+                            </div>
+
+
+                            <div class="col-md-2">
+                                <div  class="btn-group ng-scope" dropdown="" is-open="status.isopen">
+
+                                    <select   ng-model="field.dataType" class="btn btn-primary  btn-bordered dropdown-toggle right-split">
+                                        <option ng-repeat="option in datatype.availableOptions" value="{{option.id}}" >{{option.name}}</option>
+                                    </select>
+
+
+
+
+                                </div>
+                            </div>
+
+                            <div  class="col-md-2">
+                                <input id="colsize" class="form-control" ng-model="field.length">
+                            </div>
+
+
+
+                            <div  class="col-md-1">
+                                <input id="colnull"   type="checkbox" ng-model="field.null" ng-true-value="'NOT NULL'" ng-false-value="' '">
+
+                            </div>
+
+                            <div  class="col-md-1">
+                                <input type="checkbox" ng-model="field.ai" ng-true-value="'AUTO_INCREMENT'" ng-false-value="' '">
+                            </div>
+                            <div class="col-md-2">
+                                <div  class="btn-group ng-scope" dropdown="" is-open="status.isopen">
+
+                                    <select  name="repeatSelect" id="repeatSelect" ng-model="field.valueKey" class="btn btn-primary  btn-bordered dropdown-toggle right-split">
+                                        <option ng-repeat="options in indextype.availableindexOptions" value="{{options.id}}">{{options.id}}</option>
+                                    </select>
+
+
+
+
+                                </div>
+                            </div>
+                            <div  class="col-md-2">
+                                <button ng-click="fields.splice($index, 1)" aria-label="Remove" class="btn btn-danger btn-rounded">Remove</button>
+                            </div>
+                            <span style="padding-top: 10%"></span>
+
+                        </div>
+
+                        <div style="padding-top: 5%"></div>
+
+                        <div>
+
+                            <div>
+                                <button ng-click="addcol(); " class="btn btn-primary btn-rounded">Add</button>
+                            </div>
+                        </div>
+
+
+
+                        <nav class="list-group-item list-group-item-success">
+
+                            <label>Table</label>
+                            {{$scope.tableName}}
+                            <br>
+
+
+
+                            <label ng-repeat="f in fields" style="border: double;padding: 2px 5px;">
+                                {{f.name}}
+                            </label>
+                        </nav>
+
+
+
+
+
+
+
+
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+
+                                <label> CREATE TABLE  </label>
+                                <label > {{$root.tableName}}  </label>
+                                <label > ( </label>
+                                <div ng-repeat="f in fields">
+
+                                    {{f.name}}
+                                    <span style="padding-left: 10px;padding-right: 10px" ></span>
+                                    {{datatype.model}}
+                                    <label>(</label>
+
+                                    {{f.length}}
+                                    <label>) </label>
+                                    <span style="padding-left: 10px;padding-right: 10px" ></span>
+                                    {{f.nul}}
+                                    <span style="padding-left: 10px;padding-right: 10px" ></span>
+                                    {{f.ai}}
+                                    <span style="padding-left: 10px;padding-right: 10px" ></span>
+                                    {{f.indx.model}}
+                                    ,
+                                    <br>
+
+                                </div>
+                                <label>)</label>
+
+                            </div>
+                        </div>
+
+
+                          <span class="pull-right">
+                                    <div  >
+
+
+                                        <button type="button" class="btn btn-primary btn-bordered" ng-click="createTb()" ui-sref="blank">Create Table</button>
+                                    </div>
+
+                                </span>
+
+
+                                <span class="pull-right">
+                                    <div  >
+
+
+                                        <button type="button" class="btn btn-primary btn-bordered" ng-click="cancel()" ui-sref="blank">Insert Values</button>
+                                    </div>
+
+                                </span>
+
+
+
+                    </div>
+
+
+                    <!--<table>
+
+                        <tr>
+                            <td  ng-repeat="field in datum">one</td>
+
+                        </tr>
+                    </table>-->
+                </div>
+            </div>
+        </div>
+
+
+        </div>
+
+        <!--next button was here-->
+        <div>
+
+
+
+
+
+
+        </div>
+
+
+
+
+    </script>
+
+    <div class="section-heading"></div>
+
+    <br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div >
+        <button class="btn btn-primary btn-rounded"<a ui-sref="blank"></a >Insert</button>
+
+
+
+    </div>
+    <div style="padding: 10px;">
+        <span ></span>
+    </div>
+
+    <div >
+        <button class="btn btn-primary btn-rounded" >Relations</button>
+
+
+
+    </div>
+    <div style="padding: 10px;">
+        <span ></span>
+    </div>
+    <div >
+        <button class="btn btn-primary btn-rounded" <a ui-sref="update">Update</button>
+
+
+
+    </div>
+    <div style="padding: 10px;">
+        <span ></span>
+    </div>
+    <div>
+        <button class="btn btn-primary btn-rounded" ng-click="open('lg')">Delete</button>
+    </div>
+
+    <span> </span>
+
+
+
+</div>

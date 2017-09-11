@@ -1,0 +1,53 @@
+{
+  "name": "dashy-angular",
+  "version": "0.0.0",
+  "dependencies": {
+    "angular": "1.3.18",
+    "json3": "~3.3.0",
+    "es5-shim": "~4.0.0",
+    "bootstrap": "~3.2.0",
+    "angular-mocks": "~1.3.14",
+    "ui-router": "~0.2.13",
+    "bootstrap-btn-outline-rounded": "~0.0.3",
+    "angular-animate": "~1.3.15",
+    "angular-bootstrap": "0.12.0",
+    "fontawesome": "~4.3.0",
+    "textAngular": "~1.3.11",
+    "jquery": "2.1.4",
+    "angular-ui-calendar": "~0.8.1",
+    "angular-perfect-scrollbar-4.1.1fixed": "~0.0.5",
+    "angular-chart.js": "~0.6.0",
+	"angular-xeditable": "0.1.8",
+    "c3-angular": "~0.3.0",
+    "angular-loading-bar": "~0.7.1",
+    "angular-growl-v2": "~0.7.3",
+    "angular-growl-notifications": "~2.1.2",
+    "angulartics": "~0.19.0",
+	"sweetalert2": "~5.0.3",
+	"angular-sanitize":"~1.5.9",
+	"angular-bind-html-compile":"~1.0.0",
+	"datatables.net":"1.10",
+	"datatables.net-dt":"1.10",
+	"angular-datatables":"0.5.5",
+	"datatables.net-select":"1.2.1",
+	"datatables.net-select-dt":"1.2.1",
+	"jpkleemans-angular-validate":"1.1.1",
+	"datatables-buttons":"1.2.4",
+	"datatables.net-buttons":"1.2.4",
+	"datatables.net-buttons-dt":"1.2.4",
+	"jszip":"2.5.0",
+	"pdfmake":"0.1.18",
+	"ngSweetAlert":"1.1.2",
+	"ng-sweet-alert":"1.0.8",
+	"angular-audio":"1.7.3",
+    "angular-js-xlsx":"0.0.2"
+	
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.3.0"
+  },
+  "resolutions": {
+    "angular": "1.3.18",
+    "jquery": "2.1.4"
+  }
+}

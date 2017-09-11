@@ -1,0 +1,390 @@
+<pageheader pagename="View All Accounts"></pageheader>
+
+<div class="conter-wrapper" data-ng-init="init()">
+	<div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-info" >
+                <div class="panel-heading">
+                    <h3 class="panel-title">Prediction Report</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <stats 
+                                bgclass="info" 
+                                icon="eye" 
+                                value={{amu1}}
+                                text="Already collected">
+                            </stats>
+                        </div>
+                        <div class="col-sm-4">
+                            <stats 
+                                bgclass="primary" 
+                                icon="eye" 
+                                 value={{amu2}}
+                                text="Have to Collect">
+                            </stats>
+                        </div>
+                        <div class="col-sm-4">
+                            <stats 
+                                bgclass="warning" 
+                                icon="eye" 
+                                value={{amu1+amu2}}
+                                text="Expected Monthly Income">
+                            </stats>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-info" >
+                <div class="panel-heading">
+                    <h3 class="panel-title">Cash Account</h3>
+                </div>
+                <div class="panel-body">
+                    <table id="CashAccountSearchResultByName" class="table table-striped table-bordered" cellspacing="0" width="100%" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+								<th>id</th>
+                                <th>Date</th>
+                                <th>Description</th>
+                                <th>Incoming Amount</th>
+                                <th>Outgoing Amount</th>
+                        </thead>
+                        <tbody id ="cashSerchTableBody">
+                        </tbody>
+                        <tfoot>
+                            <tr>
+								<th>id</th>
+                                <th>Date</th>
+                                <th>Description</th>
+                                <th>Incoming Amount</th>
+                                <th>Outgoing Amount</th>
+                        </tfoot>
+                    </table>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <stats 
+                                bgclass="info" 
+                                icon="eye" 
+                                value={{debitBal}}
+                                text="Incoming Amount">
+                            </stats>
+                        </div>
+                        <div class="col-sm-4">
+                            <stats 
+                                bgclass="primary" 
+                                icon="eye" 
+                                value={{creditBal}} 
+                                text="Outgoing Amount">
+                            </stats>
+                        </div>
+                        <div class="col-sm-4">
+                            <stats 
+                                bgclass="warning" 
+                                icon="eye" 
+                                value={{forwordBal}} 
+                                text="Cash in Hand">
+                            </stats>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-info" >
+                <div class="panel-heading">
+                    <h3 class="panel-title">Student Account</h3>
+                </div>
+                <div class="panel-body">
+                    <table id="StudentAccountSearchResultByName" class="table table-striped table-bordered" cellspacing="0" width="100%" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+								<th>id</th>
+                                <th>Date</th>
+                                <th>Description</th>
+                                <th>Received</th>
+                                <th>Payments</th>
+                        </thead>
+                        <tbody id ="stuSerchTableBody">
+                        </tbody>
+                        <tfoot>
+                            <tr>
+								<th>id</th>
+                                <th>Date</th>
+                                <th>Description</th>
+                                <th>Received</th>
+                                <th>Payments</th>
+                        </tfoot>
+                    </table>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <stats 
+                                bgclass="primary" 
+                                icon="eye" 
+                                value={{st_creditBal+st_debitBal}} 
+                                text="Total Received">
+                            </stats>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <stats 
+                                bgclass="info" 
+                                icon="eye" 
+                                value={{st_debitBal}}
+                                text="Arrears Payments">
+                            </stats>
+                        </div>
+                        <div class="col-sm-4">
+                            <stats 
+                                bgclass="warning" 
+                                icon="eye" 
+                                value={{st_creditBal}} 
+                                text="Net Received Amount">
+                            </stats>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-info" >
+                <div class="panel-heading">
+                    <h3 class="panel-title">Profit Account</h3>
+                </div>
+                <div class="panel-body">
+                    <table id="ProfitAcc" class="table table-striped table-bordered" cellspacing="0" width="100%" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+								<th>id</th>
+                                <th>Date</th>
+                                <th>Description</th>
+                                <th>Income</th>
+                                <th>Expense</th>
+                        </thead>
+                        <tbody id ="profitTableBody">
+
+                        </tbody>
+                        <tfoot>
+                            <tr>
+								<th>id</th>
+                                <th>Date</th>
+                                <th>Description</th>
+                                <th>Income</th>
+                                <th>Expense</th>
+                        </tfoot>
+                    </table>
+                    <div class="row">
+
+                        <div class="col-sm-4">
+                            <stats 
+                                bgclass="primary" 
+                                icon="eye" 
+                                value={{pa_creditBal}} 
+                                text="Income">
+                            </stats>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <stats 
+                                bgclass="info" 
+                                icon="eye" 
+                                value={{pa_debitBal}}
+                                text="Expense">
+                            </stats>
+                        </div>
+
+                        <div class="col-sm-4">
+                            <stats 
+                                bgclass="warning" 
+                                icon="eye" 
+                                value={{pa_forwordBal}} 
+                                text={{balance_type}}>
+                            </stats>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-info" >
+                <div class="panel-heading">
+                    <h3 class="panel-title">Teacher Account</h3>
+                </div>
+                <div class="panel-body">
+                    <table id="teacherAcc" class="table table-striped table-bordered" cellspacing="0" width="100%" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+								<th>id</th>
+                                <th>Date</th>
+                                <th>Description</th>
+                                <th>Class Fees</th>
+                                <th>Paid Amount & Photocopy Charges</th>
+                        </thead>
+                        <tbody id ="teacherTableBody">
+                        </tbody>
+                        <tfoot>
+                            <tr>
+								<th>id</th>
+                                <th>Date</th>
+                                <th>Description</th>
+                                <th>Class Fees</th>
+                                <th>Paid Amount & Photocopy Charges</th>
+                        </tfoot>
+                    </table>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <stats 
+                                bgclass="primary" 
+                                icon="eye" 
+                                value={{t_creditBal}} 
+                                text="Class Fees">
+                            </stats>
+                        </div>
+                        <div class="col-sm-4">
+                            <stats 
+                                bgclass="info" 
+                                icon="eye" 
+                                value={{t_debitBal}}
+                                text="Paid Amount & Photocopy Charges">
+                            </stats>
+                        </div>
+                        <div class="col-sm-4">
+                            <stats 
+                                bgclass="warning" 
+                                icon="eye" 
+                                value={{t_forwordBal}} 
+                                text="{{balance_type1}}">
+                            </stats>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-info" >
+                <div class="panel-heading">
+                    <h3 class="panel-title">Other Income Account</h3>
+                </div>
+                <div class="panel-body">
+                    <table id="otherIncomeAcc" class="table table-striped table-bordered" cellspacing="0" width="100%" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+								<th>id</th>
+                                <th>Date</th>
+                                <th>Description</th>
+                                <th>Income</th>
+                                <th>Expense</th>
+                        </thead>
+                        <tbody id ="otherIncomeTableBody">
+                        </tbody>
+                        <tfoot>
+                            <tr>
+								<th>id</th>
+                                <th>Date</th>
+                                <th>Description</th>
+                                <th>Income</th>
+                                <th>Expense</th>
+                        </tfoot>
+                    </table>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <stats 
+                                bgclass="primary" 
+                                icon="eye" 
+                                value={{oi_creditBal}} 
+                                text="Income">
+                            </stats>
+                        </div>
+                        <div class="col-sm-4">
+                            <stats 
+                                bgclass="info" 
+                                icon="eye" 
+                                value={{oi_debitBal}}
+                                text="Expense">
+                            </stats>
+                        </div>
+                        <div class="col-sm-4">
+                            <stats 
+                                bgclass="warning" 
+                                icon="eye" 
+                                value={{oi_forwordBal}} 
+                                text="Total Photocopy Income">
+                            </stats>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+	<div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-info" >
+                <div class="panel-heading">
+                    <h3 class="panel-title">Other Expenses</h3>
+                </div>
+                <div class="panel-body">
+                    <table id="otherIncomeAcc1" class="table table-striped table-bordered" cellspacing="0" width="100%" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+								<th>id</th>
+                                <th>Date</th>
+                                <th>Description</th>
+                                <th>Income</th>
+                                <th>Expense</th>
+                        </thead>
+                        <tbody id ="otherIncomeTableBody1">
+                        </tbody>
+                        <tfoot>
+                            <tr>
+								<th>id</th>
+                                <th>Date</th>
+                                <th>Description</th>
+                                <th>Income</th>
+                                <th>Expense</th>
+                        </tfoot>
+                    </table>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <stats 
+                                bgclass="primary" 
+                                icon="eye" 
+                                value={{oi_creditBal1}} 
+                                text="Income">
+                            </stats>
+                        </div>
+                        <div class="col-sm-4">
+                            <stats 
+                                bgclass="info" 
+                                icon="eye" 
+                                value={{oi_debitBal1}}
+                                text="Expense">
+                            </stats>
+                        </div>
+                        <div class="col-sm-4">
+                            <stats 
+                                bgclass="warning" 
+                                icon="eye" 
+                                value={{oi_forwordBal1}} 
+                                text="Total">
+                            </stats>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

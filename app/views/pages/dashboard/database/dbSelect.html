@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Select from tables</title>
+</head>
+<body>
+
+
+<div class="panel-heading" >
+    <h3 class="panel-title" style="align-content: center;">Select Table
+
+    </h3>
+    <div ng-controller="DropdownCtrl" class="btn-group" dropdown is-open="status.isopen">
+        <button type="button" class="btn btn-warning btn-rounded dropdown-toggle right-split" dropdown-toggle ng-disabled="disabled">
+            Table <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Table1</a></li>
+            <li><a href="#">Student table</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+        </ul>
+    </div>
+
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<div>
+    
+    <div class="tab-pane active" id="charts">
+        <div class="section-heading">Menus</div>
+        <ul class="nav sidebar-nav">
+            <li ng-class="{active: $state.includes('home')}"><a ui-sref="home" ng-click="showSubNav(0)"><i class="fa fa-home"></i> <span class="menu-text"</span>Home</a> </li>
+            <li class="sidenav-dropdown" ng-class="{'show-subnav': showingSubNav=='uiElements'}" ng-mouseover="hoverCancel()">
+                <a class="subnav-toggle" href="javascript:;" ng-click="showSubNav('uiElements')"><i class="fa fa-toggle-off"></i> <span class="menu-text">Database Manager<i class="fa fa-angle-down  pull-right"></i></span></a>
+                <ul class="nav sidenav-sub-menu" collapse="showingSubNav!='uiElements'">
+                    <li ng-class="{active: $state.includes('Create_Database')}"><a ui-sref="Create_Database" ><i class="fa fa-circle-o"></i> Create Database</a></li>
+                    <li ng-class="{active: $state.includes('View_Databases')}"><a ui-sref="View_Databases" ><i class="fa fa-flag-o"></i>View Databases</a></li>
+                    <li ng-class="{active: $state.includes('Drop_Database')}"><a ui-sref="Drop_Database" ><i class="fa fa-exchange"></i> Drop Database</a></li>
+                </ul>
+            </li>
+            <li class="sidenav-dropdown" ng-class="{'show-subnav': showingSubNav=='uiElements'}" ng-mouseover="hoverCancel()">
+                <a class="subnav-toggle" href="javascript:;" ng-click="showSubNav('uiElements')"><i class="fa fa-toggle-off"></i> <span class="menu-text">Table Manager<i class="fa fa-angle-down  pull-right"></i></span></a>
+                <ul class="nav sidenav-sub-menu" collapse="showingSubNav!='uiElements'">
+                    <li ng-class="{active: $state.includes('Create_Table')}"><a ui-sref="Create_Table" ><i class="fa fa-circle-o"></i> Create Table</a></li>
+                    <li ng-class="{active: $state.includes('Alter_Table')}"><a ui-sref="Alter_Table" ><i class="fa fa-arrows-v"></i> Alter Table</a></li>
+                    <li ng-class="{active: $state.includes('View_Tables')}"><a ui-sref="View_Tables" ><i class="fa fa-flag-o"></i>View Tables</a></li>
+                    <li ng-class="{active: $state.includes('Drop_Table')}"><a ui-sref="Drop_Table" ><i class="fa fa-exchange"></i> Drop Table</a></li>
+                    <li ng-class="{active: $state.includes('Link_Tables')}"><a ui-sref="Link_Tables" ><i class="fa fa-angle-double-right"></i>Link Tables</a></li>
+                    <li ng-class="{active: $state.includes('Drop_Links')}"><a ui-sref="Drop_Links" ><i class="fa fa-warning"></i> Drop Links</a></li>
+					<li ng-class="{active: $state.includes('View_Links')}"><a ui-sref="View_Links" ><i class="fa fa-warning"></i> View Links</a></li>
+                </ul>
+            </li>
+			<li class="sidenav-dropdown" ng-class="{'show-subnav': showingSubNav=='uiElements'}" ng-mouseover="hoverCancel()">
+                <a class="subnav-toggle" href="javascript:;" ng-click="showSubNav('uiElements')"><i class="fa fa-toggle-off"></i> <span class="menu-text">Data Manager<i class="fa fa-angle-down  pull-right"></i></span></a>
+                <ul class="nav sidenav-sub-menu" collapse="showingSubNav!='uiElements'">
+					<li ng-class="{active: $state.includes('View_Data')}"><a ui-sref="View_Data" ><i class="fa fa-flag-o"></i>View Data</a></li>
+                    <li ng-class="{active: $state.includes('Insert_Data')}"><a ui-sref="Insert_Data" ><i class="fa fa-circle-o"></i> Insert Data</a></li>
+                    <li ng-class="{active: $state.includes('Update_Data')}"><a ui-sref="Update_Data" ><i class="fa fa-arrows-v"></i> Update Data</a></li>
+                    <li ng-class="{active: $state.includes('Delete_Data')}"><a ui-sref="Delete_Data" ><i class="fa fa-exchange"></i>Delete Data</a></li>
+                </ul>
+            </li>
+            <li  ng-class="{active: $state.includes('Query_Data')}"><a ui-sref="Query_Data" ng-click="showSubNav(0)"><i class="fa fa-bookmark-o"></i> <span class="menu-text">Query Data</span></a></li>
+            <li ng-class="{active: $state.includes('Export_Sql')}"><a ui-sref="Export_Sql" ng-click="showSubNav(0)"><i class="fa fa-table"></i> <span class="menu-text">Export Sql</span></a></li>
+            <li ng-class="{active: $state.includes('DBMS_Java_Class')}"><a ui-sref="DBMS_Java_Class" ng-click="showSubNav(0)"><i class="fa fa-th-large"></i> <span class="menu-text">DBMS Java Class</span></a></li>
+            
+        </ul>
+    </div>
+</div>

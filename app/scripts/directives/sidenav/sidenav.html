@@ -1,0 +1,17 @@
+<div class="striped-bg" id="sidenav" ng-controller="TabsDemoCtrl">
+    <div id="navTabs">
+        <div class="sidebar-controllers sidebar-top-nav">
+             <tabset justified="true">
+                <tab active="tabActive[0]">
+                    <div class=" hidden-xs">
+						<a class="toggle-menu" ng-click="menuToggle()"><i class="fa fa-chevron-left fa-2x left-chevron"></i>
+							<i class="fa fa-chevron-right fa-2x right-chevron"></i>
+						</a>
+                    </div>
+                    <menu ng-show="adminMenu"></menu>
+					<usermenu ng-show="userMenu"></usermenu>
+                </tab>
+            </tabset>              
+        </div>
+    </div> 
+</div>

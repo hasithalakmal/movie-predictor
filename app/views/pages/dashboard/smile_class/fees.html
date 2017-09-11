@@ -1,0 +1,213 @@
+<pageheader pagename="Fees"></pageheader>
+
+<div class="conter-wrapper">                
+    <div class="row" ng-hide="isStudentSelect">
+        <div class="col-sm-12">
+            <div class="panel panel-info" >
+                <div class="panel-heading">
+                    <h3 class="panel-title">Get Balance Payments </h3>
+                </div>
+                <div class="panel-body">
+                    <form name="simpleform" ng-submit= "submit(simpleform);" ng-validate="validationOptions">
+                        <div class="form-group">
+                            <label>Student Registration Number</label>
+                            <input 
+                                type="number" 
+                                class="form-control" 
+                                placeholder="Enter Registration Number"
+                                ng-model="addmision_number"
+                                name="addmision_number"
+                                />
+                        </div>
+                        <button  type="submit" class="btn btn-default" ng-disabled="formsinglesublitControleFlag1">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+	
+    <div class="row" ng-show="isStudentSelect">
+        <div class="col-sm-12">
+            <div class="panel panel-info" >
+                <div class="panel-heading">
+                    <h3 class="panel-title">Need To Pay Student ID = {{addmision_number}}</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="col-sm-4">	
+                        <stats 
+                            bgclass="default" 
+                            icon="eye" 
+                            value={{creditBal}} 
+                            text="Payable Amount">
+                        </stats>
+                    </div>
+					<div class="col-sm-4">	
+                        <stats 
+                            bgclass="warning" 
+                            icon="eye" 
+                            value={{previousAries}} 
+                            text="Previous Arrears">
+                        </stats>
+                    </div>
+					<div class="col-sm-4">	
+                        <stats 
+                            bgclass="danger" 
+                            icon="eye" 
+                            value={{creditBal+previousAries}} 
+                            text="Total Payable Amount">
+                        </stats>
+                    </div>
+                    <table id="StudentSearchResultByName" class="table table-striped table-bordered" cellspacing="0" width="100%" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Record ID</th>
+                                <th>Year</th>
+                                <th>Month</th>
+                                <th>Class</th>
+                                <th>Teacher Name</th>
+                                <th>Class Fees</th>
+                            </tr>
+                        </thead>
+                        <tbody id ="stuSerchTableBody">
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th></th>
+                                <th>Record ID</th>
+                                <th>Year</th>
+                                <th>Month</th>
+                                <th>Class</th>
+                                <th>Teacher Name</th>
+                                <th>Class Fees</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+					<div class="form-group">
+                            <label>Paid Amount</label>
+                            <input 
+                                type="number" 
+                                class="form-control" 
+								step="0.01"
+                                placeholder="Enter Paid Amount"
+								min = "0"
+                                ng-model="paid_amount"
+								id = "paid_amount_jq"
+								required = ""
+                                />
+                    </div>
+                    <button  ng-click="pay_fee();" class="btn btn-default" ng-disabled="formsinglesublitControleFlag2">Pay</button>
+                </div>
+            </div>
+        </div>
+    </div>
+	<div class="row" ng-show="isStudentSelect">
+        <div class="col-sm-12">
+            <div class="panel panel-info" >
+                <div class="panel-heading">
+                    <h3 class="panel-title">Arrears Payment (Use Only When Don't Pay Fees)</h3>
+                </div>
+                <div class="panel-body">
+					<div class="form-group">
+                            <label>Paid Amount</label>
+                            <input 
+                                type="number" 
+                                class="form-control" 
+                                placeholder="Enter Paid Amount"
+								min = "0"
+                                ng-model="aries_payment_amount"
+                                name="aries_payment_amount"
+								required = ""
+                                />
+                    </div>
+                    <button  ng-click="payAries();" class="btn btn-default" ng-disabled="formsinglesublitControleFlag4">Pay Arrears</button>
+                </div>
+            </div>
+        </div>
+    </div>
+	
+    <div class="row" ng-show="isStudentSelect">
+        <div class="col-sm-12">
+            <div class="panel panel-info" >
+                <div class="panel-heading">
+                    <h3 class="panel-title">Add New Fees to Payments</h3>
+                </div>
+                <div class="panel-body">
+                    <form  ng-submit= "submit3();">
+                        <div class="form-group">
+                            <label >Select Class</label><br/>
+                            <select class="form-control" ng-options="obj.lid as obj.studyClass.clsName for obj in learn_classes_select" ng-model="learnID">
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label >Select Payable Year</label><br/>
+                            <select class="form-control" ng-model="payableYear">
+                                <option value="2017">2017</option>
+                                <option value="2018">2018</option>
+                                <option value="2019">2019</option>
+                                <option value="2020">2020</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label >Select Payable Month</label><br/>
+                            <select class="form-control" ng-model="payableMonth">
+                                <option value="1">January</option>
+                                <option value="2">February</option>
+                                <option value="3">March</option>
+                                <option value="4">April</option>
+                                <option value="5">May</option>
+                                <option value="6">June</option>
+                                <option value="7">July</option>
+                                <option value="8">August</option>
+                                <option value="9">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+                            </select>
+                        </div>
+                        <button  type="submit" class="btn btn-default" ng-disabled="formsinglesublitControleFlag3">Submit</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" ng-show="isStudentSelect">
+        <div class="col-sm-12">
+            <div class="panel panel-info" >
+                <div class="panel-heading">
+                    <h3 class="panel-title">Payment History</h3>
+                </div>
+                <div class="panel-body">
+                    <table id="StudentSearchResultByName2" class="table table-striped table-bordered" cellspacing="0" width="100%" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Record ID</th>
+                                <th>Year</th>
+                                <th>Month</th>
+                                <th>Class</th>
+                                <th>Teacher Name</th>
+                                <th>Paid Date</th>
+                                <th>Class Fees</th>
+                            </tr>
+                        </thead>
+                        <tbody id ="stuSerchTableBody2">
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Record ID</th>
+                                <th>Year</th>
+                                <th>Month</th>
+                                <th>Class</th>
+                                <th>Teacher Name</th>
+                                <th>Paid Date</th>
+                                <th>Class Fees</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
