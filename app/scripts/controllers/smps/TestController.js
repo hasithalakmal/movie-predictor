@@ -75,6 +75,7 @@ angular.module('dashyAngular').controller('TestController', function ($scope, $h
                 data: data
             }).then(function successCallback(response) {
                 var result = response.data.niveBayearsTestResult;
+                var result2 = response.data.cartTestResult;
 
                 $scope.stusertable.destroy();
                 $('#stuSerchTableBody').empty();
@@ -85,14 +86,24 @@ angular.module('dashyAngular').controller('TestController', function ($scope, $h
                     +"<tr><td> Total Test Dataset </td><td>"+ result.totalTestDataset + "</td></tr>"
                     +"<tr><td> Total Positives In Test Dataset </td><td>"+ result.totalPositivesInTestDataset + "</td></tr>"
                     +"<tr><td> Total Negatives In Test Dataset </td><td>"+ result.totalNegativesInTestDataset + "</td></tr>"
-                    +"<tr><td> Total False Positive Count </td><td>"+ result.totalFalsePositiveCount + "</td></tr>"
-                    +"<tr><td> Total False Negative Count </td><td>"+ result.totalFalseNegativeCount + "</td></tr>"
-                    +"<tr><td> Total Unsuccess Count </td><td>"+ result.totalUnsuccessCount + "</td></tr>"
-                    +"<tr><td> Un success Probability </td><td>"+ result.unsuccessProbability + "</td></tr>"
-                    +"<tr><td> Total Success Positive Count </td><td>"+ result.totalSuccessPositiveCount + "</td></tr>"
-                    +"<tr><td> Total Success Negative Count </td><td>"+ result.totalSuccessNegativeCount + "</td></tr>"
-                    +"<tr><td> Total Success Count </td><td>"+ result.totalSuccessCount + "</td></tr>"
-                    +"<tr><td> Success Probability </td><td>"+ result.successProbability + "</td></tr>"
+
+                    +"<tr><td> Total False Positive Count - Naive </td><td>"+ result.totalFalsePositiveCount + "</td></tr>"
+                    +"<tr><td> Total False Negative Count - Naive </td><td>"+ result.totalFalseNegativeCount + "</td></tr>"
+                    +"<tr><td> Total Unsuccess Count - Naive</td><td>"+ result.totalUnsuccessCount + "</td></tr>"
+                    +"<tr><td> Un success Probability - Naive</td><td>"+ result.unsuccessProbability + "</td></tr>"
+                    +"<tr><td> Total Success Positive Count - Naive </td><td>"+ result.totalSuccessPositiveCount + "</td></tr>"
+                    +"<tr><td> Total Success Negative Count - Naive</td><td>"+ result.totalSuccessNegativeCount + "</td></tr>"
+                    +"<tr><td> Total Success Count - Naive</td><td>"+ result.totalSuccessCount + "</td></tr>"
+                    +"<tr><td> Success Probability - Naive</td><td>"+ result.successProbability + "</td></tr>"
+
+                    +"<tr><td> Total False Positive Count - Cart </td><td>"+ result2.totalFalsePositiveCount + "</td></tr>"
+                    +"<tr><td> Total False Negative Count - Cart </td><td>"+ result2.totalFalseNegativeCount + "</td></tr>"
+                    +"<tr><td> Total Unsuccess Count - Cart</td><td>"+ result2.totalUnsuccessCount + "</td></tr>"
+                    +"<tr><td> Un success Probability - Cart</td><td>"+ result2.unsuccessProbability + "</td></tr>"
+                    +"<tr><td> Total Success Positive Count - Cart </td><td>"+ result2.totalSuccessPositiveCount + "</td></tr>"
+                    +"<tr><td> Total Success Negative Count - Cart</td><td>"+ result2.totalSuccessNegativeCount + "</td></tr>"
+                    +"<tr><td> Total Success Count - Cart</td><td>"+ result2.totalSuccessCount + "</td></tr>"
+                    +"<tr><td> Success Probability - Cart</td><td>"+ result2.successProbability + "</td></tr>"
                 );
 
 

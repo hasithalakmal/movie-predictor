@@ -106,7 +106,7 @@ angular.module('dashyAngular').controller('TrainingCtrl', function ($scope,$http
                 $("#studentSearchingTable").show();
                 $scope.isShow = true;
 
-                swal("Success!", "Class is Successfully Registered!", "success");
+                swal("Success!", "Row data successfully registered!", "success");
                 $scope.formsinglesublitControleFlag = false;
             }, function errorCallback(response) {
                 swal('error!', 'something wrong!', 'error');

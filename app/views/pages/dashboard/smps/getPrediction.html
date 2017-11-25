@@ -80,13 +80,23 @@
                             />
                         </div>
                         <div class="form-group">
-                            <label> Duration </label>
+                            <label> Duration (Minute)</label>
                             <input
                                     type="text"
                                     class="form-control"
                                     placeholder="Enter Duration"
                                     ng-model="duration"
                                     name="duration"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label> Movie Trailer ID </label>
+                            <input
+                                    type="text"
+                                    class="form-control"
+                                    placeholder="Enter Movie Trailer ID"
+                                    ng-model="movieTrailer"
+                                    name="movieTrailer"
                             />
                         </div>
 
@@ -97,34 +107,132 @@
                     </form>
                 </div>
             </div>
-            <div class="row" ng-show="resultPannal">
-                <div class="col-sm-4">
-                    <stats
-                            bgclass="info"
-                            icon="eye"
-                            value={{positiveProbability}}
-                            text="positiveProbability">
-                    </stats>
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Naive Bayes Prediction </h3>
                 </div>
-                <div class="col-sm-4">
-                    <stats
-                            bgclass="primary"
-                            icon="eye"
-                            value={{negativeProbability}}
-                            text="negativeProbability">
-                    </stats>
+                <div class="panel-body">
+                    <div class="col-sm-4">
+                        <stats
+                                bgclass="info"
+                                icon="eye"
+                                value={{positiveProbability}}
+                                text="positiveProbability">
+                        </stats>
+                    </div>
+                    <div class="col-sm-4">
+                        <stats
+                                bgclass="primary"
+                                icon="eye"
+                                value={{negativeProbability}}
+                                text="negativeProbability">
+                        </stats>
+                    </div>
+                    <div class="col-sm-4">
+                        <stats
+                                bgclass="warning"
+                                icon="eye"
+                                value={{prediction}}
+                                text="prediction">
+                        </stats>
+                    </div>
                 </div>
-                <div class="col-sm-4">
-                    <stats
-                            bgclass="warning"
-                            icon="eye"
-                            value={{prediction}}
-                            text="prediction">
-                    </stats>
+            </div>
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Decision tree Prediction </h3>
+                </div>
+                <div class="panel-body">
+                    <!-- <div class="col-sm-4">
+                        <stats
+                                bgclass="info"
+                                icon="eye"
+                                value={{positiveProbability}}
+                                text="positiveProbability">
+                        </stats>
+                    </div>
+                    <div class="col-sm-4">
+                        <stats
+                                bgclass="primary"
+                                icon="eye"
+                                value={{negativeProbability}}
+                                text="negativeProbability">
+                        </stats>
+                    </div> -->
+                    <div class="col-sm-4">
+                        <stats
+                                bgclass="warning"
+                                icon="eye"
+                                value={{cartprediction}}
+                                text="prediction">
+                        </stats>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Youtube Prediction 1</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="col-sm-4">
+                        <stats
+                                bgclass="info"
+                                icon="eye"
+                                value={{youtubePositive1}}
+                                text="Positive Count">
+                        </stats>
+                    </div>
+                    <div class="col-sm-4">
+                        <stats
+                                bgclass="primary"
+                                icon="eye"
+                                value={{youtubeNegative1}}
+                                text="Negative Count">
+                        </stats>
+                    </div>
+                    <div class="col-sm-4">
+                        <stats
+                                bgclass="warning"
+                                icon="eye"
+                                value={{youtubePrediction1}}
+                                text="prediction">
+                        </stats>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Youtube Prediction 2</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="col-sm-4">
+                        <stats
+                                bgclass="info"
+                                icon="eye"
+                                value={{youtubePositive2}}
+                                text="Positive Count">
+                        </stats>
+                    </div>
+                    <div class="col-sm-4">
+                        <stats
+                                bgclass="primary"
+                                icon="eye"
+                                value={{youtubeNegative2}}
+                                text="Negative Count">
+                        </stats>
+                    </div>
+                    <div class="col-sm-4">
+                        <stats
+                                bgclass="warning"
+                                icon="eye"
+                                value={{youtubePrediction2}}
+                                text="prediction">
+                        </stats>
+                    </div>
                 </div>
             </div>
         </div>
+
     </div>
 
 </div>
-

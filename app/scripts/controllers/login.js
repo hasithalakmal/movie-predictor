@@ -18,6 +18,8 @@ angular.module('dashyAngular')
                     $location.path('/dashboard/home');
                     sessionStorage.setItem("userLevel", "admin");
                     sessionStorage.setItem("movieAPIBaseURL", "http://localhost:8084/movie-predictor-api/");
+                    sessionStorage.setItem("youtubeAPI1URL", "http://localhost:8084/cart-api/mock1/");
+                    sessionStorage.setItem("youtubeAPI2URL", "http://localhost:8084/cart-api/mock2/");
                 } else {
                     swal('Error!!!', 'Check Your User Name & Password.', 'error');
                 }
